@@ -13,7 +13,6 @@ namespace SitkoCRM.Controllers
     {
 
         private readonly CRMContainer _container;
-
         public ValuesController(CRMContainer container)
         {
             _container = container;
@@ -37,14 +36,13 @@ namespace SitkoCRM.Controllers
         [HttpPost]
         public void Post([FromBody] string value)
         {
-
+            
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
-            _container.Domains.Add(new Domains { Name = "test", created_at = DateTime.Now, updated_at = DateTime.Now });
         }
 
         // DELETE api/values/5
