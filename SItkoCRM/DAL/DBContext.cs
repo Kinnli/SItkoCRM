@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SitkoCRM.DAL;
 
 namespace SitkoCRM.DAL
 {
@@ -23,11 +24,10 @@ namespace SitkoCRM.DAL
         public DbSet<DomainsStatuses> DomainsStatuses { get; set; }
         public DbSet<Hosts> Hosts { get; set; }
         public DbSet<Operations> Operations { get; set; }
-        public DbSet<Servers> Services { get; set; }
+        public DbSet<Services> Services { get; set; }
         public DbSet<Servers> Servers { get; set; }
         public DbSet<ServicesPrices> Prices { get; set; }
         public DbSet<ServicesStatuses> ServicesStatuses { get; set; }
-
 
     }
 }
