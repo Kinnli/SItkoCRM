@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Serilog;
+using Serilog.Core;
 using SitkoCRM.DAL;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -34,6 +36,9 @@ namespace SitkoCRM
             {
                 c.SwaggerDoc("v1", new Info { Title = "MyApi", Version = "v1" });
             });
+            services.AddLogging(loggingBuilder =>
+            loggingBuilder.AddSerilog(dispose: true));
+            Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.File("log.txt", rollingInterval: RollingInterval.Day).CreateLogger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

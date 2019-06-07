@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  sitkocrm:
+    image: ${DOCKER_REGISTRY-}sitkocrm
+    build:
+      context: .
+      dockerfile: SItkoCRM/Dockerfile
+  postgres:
+    image: postgres:11.2-alpine
+    ports:
+        - 5432:5432
+    volumes:
+        - /var/lib/data/brc/postgres/11.2:/var/lib/postgresql/data
+    environment:
+        - POSTGRES_USER=brc
+        - POSTGRES_PASSWORD=123

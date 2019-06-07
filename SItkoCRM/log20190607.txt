@@ -1,0 +1,134 @@
+2019-06-07 10:22:38.005 +00:00 [DBG] Hosting starting
+2019-06-07 10:22:38.163 +00:00 [INF] User profile is available. Using '/root/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2019-06-07 10:22:38.170 +00:00 [DBG] Repository contains no viable default key. Caller should generate a key with immediate activation.
+2019-06-07 10:22:38.171 +00:00 [DBG] Policy resolution states that a new key should be added to the key ring.
+2019-06-07 10:22:38.176 +00:00 [INF] Creating key "1c955d1c-2ece-414f-844d-cd2759c53679" with creation date "2019-06-07T10:22:38.1711845+00:00", activation date "2019-06-07T10:22:38.1651748+00:00", and expiration date "2019-09-05T10:22:38.1651748+00:00".
+2019-06-07 10:22:38.208 +00:00 [DBG] Descriptor deserializer type for key "1c955d1c-2ece-414f-844d-cd2759c53679" is 'Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60'.
+2019-06-07 10:22:38.211 +00:00 [DBG] No key escrow sink found. Not writing key "1c955d1c-2ece-414f-844d-cd2759c53679" to escrow.
+2019-06-07 10:22:38.215 +00:00 [WRN] No XML encryptor configured. Key "1c955d1c-2ece-414f-844d-cd2759c53679" may be persisted to storage in unencrypted form.
+2019-06-07 10:22:38.223 +00:00 [INF] Writing data to file '/root/.aspnet/DataProtection-Keys/key-1c955d1c-2ece-414f-844d-cd2759c53679.xml'.
+2019-06-07 10:22:38.224 +00:00 [DBG] Key cache expiration token triggered by 'CreateNewKey' operation.
+2019-06-07 10:22:38.226 +00:00 [DBG] Reading data from file '/root/.aspnet/DataProtection-Keys/key-1c955d1c-2ece-414f-844d-cd2759c53679.xml'.
+2019-06-07 10:22:38.231 +00:00 [DBG] Found key "1c955d1c-2ece-414f-844d-cd2759c53679".
+2019-06-07 10:22:38.234 +00:00 [DBG] Considering key "1c955d1c-2ece-414f-844d-cd2759c53679" with expiration date "2019-09-05T10:22:38.1651748+00:00" as default key.
+2019-06-07 10:22:38.275 +00:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2019-06-07 10:22:38.289 +00:00 [DBG] Using managed symmetric algorithm 'System.Security.Cryptography.Aes'.
+2019-06-07 10:22:38.289 +00:00 [DBG] Using managed keyed hash algorithm 'System.Security.Cryptography.HMACSHA256'.
+2019-06-07 10:22:38.294 +00:00 [DBG] Using key "1c955d1c-2ece-414f-844d-cd2759c53679" as the default key.
+2019-06-07 10:22:38.295 +00:00 [DBG] Key ring with default key "1c955d1c-2ece-414f-844d-cd2759c53679" was loaded during application startup.
+2019-06-07 10:22:38.391 +00:00 [DBG] Compatibility switch AllowInputFormatterExceptionMessages in type MvcJsonOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:22:38.424 +00:00 [DBG] Compatibility switch AllowCombiningAuthorizeFilters in type MvcOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:22:38.424 +00:00 [DBG] Compatibility switch AllowBindingHeaderValuesToNonStringModelTypes in type MvcOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:22:38.424 +00:00 [DBG] Compatibility switch AllowValidatingTopLevelNodes in type MvcOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:22:38.424 +00:00 [DBG] Compatibility switch InputFormatterExceptionPolicy in type MvcOptions is using compatibility value "MalformedInputExceptions" for version "Version_2_2"
+2019-06-07 10:22:38.424 +00:00 [DBG] Compatibility switch SuppressBindingUndefinedValueToEnumType in type MvcOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:22:38.424 +00:00 [DBG] Compatibility switch EnableEndpointRouting in type MvcOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:22:38.424 +00:00 [DBG] Compatibility switch MaxValidationDepth in type MvcOptions is using compatibility value 32 for version "Version_2_2"
+2019-06-07 10:22:38.425 +00:00 [DBG] Compatibility switch AllowShortCircuitingValidationWhenNoValidatorsArePresent in type MvcOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:22:38.461 +00:00 [DBG] Compatibility switch SuppressMapClientErrors in type ApiBehaviorOptions is using default value false
+2019-06-07 10:22:38.461 +00:00 [DBG] Compatibility switch SuppressUseValidationProblemDetailsForInvalidModelStateResponses in type ApiBehaviorOptions is using default value false
+2019-06-07 10:22:38.461 +00:00 [DBG] Compatibility switch AllowInferringBindingSourceForCollectionTypesAsFromQuery in type ApiBehaviorOptions is using default value false
+2019-06-07 10:22:38.464 +00:00 [DBG] Compatibility switch AllowAreas in type RazorPagesOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:22:38.464 +00:00 [DBG] Compatibility switch AllowMappingHeadRequestsToGetHandler in type RazorPagesOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:22:38.464 +00:00 [DBG] Compatibility switch AllowDefaultHandlingForOptionsRequests in type RazorPagesOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:22:38.482 +00:00 [DBG] Compatibility switch AllowRecompilingViewsOnFileChange in type RazorViewEngineOptions is using explicitly configured value true
+2019-06-07 10:22:38.499 +00:00 [DBG] Compatibility switch SuppressTempDataAttributePrefix in type MvcViewOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:22:38.499 +00:00 [DBG] Compatibility switch AllowRenderingMaxLengthAttribute in type MvcViewOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:22:38.562 +00:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider"]
+2019-06-07 10:22:38.960 +00:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 30C54615EE316CF49BE7275EA037700ADBEBFFD3)
+2019-06-07 10:22:38.999 +00:00 [DBG] Hosting started
+2019-06-07 10:22:38.999 +00:00 [DBG] Loaded hosting startup assembly SitkoCRM
+2019-06-07 10:22:39.693 +00:00 [DBG] Connection id "0HLNB688QM7RR" started.
+2019-06-07 10:22:39.820 +00:00 [DBG] Connection id "0HLNB688QM7RS" started.
+2019-06-07 10:22:40.099 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:44346/api/values  
+2019-06-07 10:22:40.101 +00:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2019-06-07 10:22:40.137 +00:00 [DBG] 1 candidate(s) found for the request path '/api/values'
+2019-06-07 10:22:40.138 +00:00 [DBG] Endpoint 'SitkoCRM.Controllers.ValuesController.Get (SitkoCRM)' with route pattern 'api/Values' is valid for the request path '/api/values'
+2019-06-07 10:22:40.140 +00:00 [DBG] Request matched endpoint 'SitkoCRM.Controllers.ValuesController.Get (SitkoCRM)'
+2019-06-07 10:22:40.145 +00:00 [INF] Executing endpoint 'SitkoCRM.Controllers.ValuesController.Get (SitkoCRM)'
+2019-06-07 10:22:40.176 +00:00 [INF] Route matched with {action = "Get", controller = "Values"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get() on controller SitkoCRM.Controllers.ValuesController (SitkoCRM).
+2019-06-07 10:22:40.177 +00:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2019-06-07 10:22:40.177 +00:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-06-07 10:22:40.177 +00:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2019-06-07 10:22:40.177 +00:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2019-06-07 10:22:40.177 +00:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2019-06-07 10:22:40.487 +00:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2019-06-07 10:22:40.524 +00:00 [INF] Executing action method SitkoCRM.Controllers.ValuesController.Get (SitkoCRM) - Validation state: "Valid"
+2019-06-07 10:22:42.689 +00:00 [ERR] System.Exception
+   at SitkoCRM.Controllers.ValuesController.Get() in C:\Users\Zubko\source\repos\SItkoCRM\SItkoCRM\Controllers\ValuesController.cs:line 30
+System.Exception
+   at SitkoCRM.Controllers.ValuesController.Get() in C:\Users\Zubko\source\repos\SItkoCRM\SItkoCRM\Controllers\ValuesController.cs:line 30
+2019-06-07 10:22:42.695 +00:00 [INF] Executed action method SitkoCRM.Controllers.ValuesController.Get (SitkoCRM), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 2165.2943ms.
+2019-06-07 10:22:42.699 +00:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"]
+2019-06-07 10:22:42.701 +00:00 [DBG] No information found on request to perform content negotiation.
+2019-06-07 10:22:42.701 +00:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2019-06-07 10:22:42.702 +00:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2019-06-07 10:22:42.702 +00:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter' and content type 'application/json' to write the response.
+2019-06-07 10:22:42.705 +00:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2019-06-07 10:22:42.785 +00:00 [INF] Executed action SitkoCRM.Controllers.ValuesController.Get (SitkoCRM) in 2602.9441ms
+2019-06-07 10:22:42.788 +00:00 [INF] Executed endpoint 'SitkoCRM.Controllers.ValuesController.Get (SitkoCRM)'
+2019-06-07 10:22:42.790 +00:00 [DBG] Connection id "0HLNB688QM7RS" completed keep alive response.
+2019-06-07 10:22:42.797 +00:00 [INF] Request finished in 2697.424ms 200 application/json; charset=utf-8
+2019-06-07 10:23:48.284 +00:00 [DBG] Hosting starting
+2019-06-07 10:23:48.424 +00:00 [INF] User profile is available. Using '/root/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2019-06-07 10:23:48.428 +00:00 [DBG] Reading data from file '/root/.aspnet/DataProtection-Keys/key-1c955d1c-2ece-414f-844d-cd2759c53679.xml'.
+2019-06-07 10:23:48.449 +00:00 [DBG] Found key "1c955d1c-2ece-414f-844d-cd2759c53679".
+2019-06-07 10:23:48.458 +00:00 [DBG] Considering key "1c955d1c-2ece-414f-844d-cd2759c53679" with expiration date "2019-09-05T10:22:38.1651748+00:00" as default key.
+2019-06-07 10:23:48.497 +00:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2019-06-07 10:23:48.510 +00:00 [DBG] Using managed symmetric algorithm 'System.Security.Cryptography.Aes'.
+2019-06-07 10:23:48.511 +00:00 [DBG] Using managed keyed hash algorithm 'System.Security.Cryptography.HMACSHA256'.
+2019-06-07 10:23:48.515 +00:00 [DBG] Using key "1c955d1c-2ece-414f-844d-cd2759c53679" as the default key.
+2019-06-07 10:23:48.515 +00:00 [DBG] Key ring with default key "1c955d1c-2ece-414f-844d-cd2759c53679" was loaded during application startup.
+2019-06-07 10:23:48.579 +00:00 [DBG] Compatibility switch AllowInputFormatterExceptionMessages in type MvcJsonOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:23:48.606 +00:00 [DBG] Compatibility switch AllowCombiningAuthorizeFilters in type MvcOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:23:48.606 +00:00 [DBG] Compatibility switch AllowBindingHeaderValuesToNonStringModelTypes in type MvcOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:23:48.606 +00:00 [DBG] Compatibility switch AllowValidatingTopLevelNodes in type MvcOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:23:48.606 +00:00 [DBG] Compatibility switch InputFormatterExceptionPolicy in type MvcOptions is using compatibility value "MalformedInputExceptions" for version "Version_2_2"
+2019-06-07 10:23:48.606 +00:00 [DBG] Compatibility switch SuppressBindingUndefinedValueToEnumType in type MvcOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:23:48.606 +00:00 [DBG] Compatibility switch EnableEndpointRouting in type MvcOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:23:48.606 +00:00 [DBG] Compatibility switch MaxValidationDepth in type MvcOptions is using compatibility value 32 for version "Version_2_2"
+2019-06-07 10:23:48.606 +00:00 [DBG] Compatibility switch AllowShortCircuitingValidationWhenNoValidatorsArePresent in type MvcOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:23:48.638 +00:00 [DBG] Compatibility switch SuppressMapClientErrors in type ApiBehaviorOptions is using default value false
+2019-06-07 10:23:48.638 +00:00 [DBG] Compatibility switch SuppressUseValidationProblemDetailsForInvalidModelStateResponses in type ApiBehaviorOptions is using default value false
+2019-06-07 10:23:48.638 +00:00 [DBG] Compatibility switch AllowInferringBindingSourceForCollectionTypesAsFromQuery in type ApiBehaviorOptions is using default value false
+2019-06-07 10:23:48.640 +00:00 [DBG] Compatibility switch AllowAreas in type RazorPagesOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:23:48.640 +00:00 [DBG] Compatibility switch AllowMappingHeadRequestsToGetHandler in type RazorPagesOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:23:48.640 +00:00 [DBG] Compatibility switch AllowDefaultHandlingForOptionsRequests in type RazorPagesOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:23:48.654 +00:00 [DBG] Compatibility switch AllowRecompilingViewsOnFileChange in type RazorViewEngineOptions is using explicitly configured value true
+2019-06-07 10:23:48.668 +00:00 [DBG] Compatibility switch SuppressTempDataAttributePrefix in type MvcViewOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:23:48.669 +00:00 [DBG] Compatibility switch AllowRenderingMaxLengthAttribute in type MvcViewOptions is using compatibility value true for version "Version_2_2"
+2019-06-07 10:23:48.724 +00:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider"]
+2019-06-07 10:23:48.994 +00:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 30C54615EE316CF49BE7275EA037700ADBEBFFD3)
+2019-06-07 10:23:49.023 +00:00 [DBG] Hosting started
+2019-06-07 10:23:49.028 +00:00 [DBG] Loaded hosting startup assembly SitkoCRM
+2019-06-07 10:23:49.471 +00:00 [DBG] Connection id "0HLNB68TK5R9R" started.
+2019-06-07 10:23:49.578 +00:00 [DBG] Connection id "0HLNB68TK5R9S" started.
+2019-06-07 10:23:49.809 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:44346/api/values  
+2019-06-07 10:23:49.811 +00:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2019-06-07 10:23:49.846 +00:00 [DBG] 1 candidate(s) found for the request path '/api/values'
+2019-06-07 10:23:49.847 +00:00 [DBG] Endpoint 'SitkoCRM.Controllers.ValuesController.Get (SitkoCRM)' with route pattern 'api/Values' is valid for the request path '/api/values'
+2019-06-07 10:23:49.848 +00:00 [DBG] Request matched endpoint 'SitkoCRM.Controllers.ValuesController.Get (SitkoCRM)'
+2019-06-07 10:23:49.852 +00:00 [INF] Executing endpoint 'SitkoCRM.Controllers.ValuesController.Get (SitkoCRM)'
+2019-06-07 10:23:49.887 +00:00 [INF] Route matched with {action = "Get", controller = "Values"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] Get() on controller SitkoCRM.Controllers.ValuesController (SitkoCRM).
+2019-06-07 10:23:49.887 +00:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2019-06-07 10:23:49.888 +00:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-06-07 10:23:49.888 +00:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2019-06-07 10:23:49.888 +00:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2019-06-07 10:23:49.888 +00:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter","Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2019-06-07 10:23:50.068 +00:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2019-06-07 10:23:50.097 +00:00 [INF] Executing action method SitkoCRM.Controllers.ValuesController.Get (SitkoCRM) - Validation state: "Valid"
+2019-06-07 10:23:52.169 +00:00 [ERR] System.Exception: kdhgaskjdgkadjg
+   at SitkoCRM.Controllers.ValuesController.Get() in C:\Users\Zubko\source\repos\SItkoCRM\SItkoCRM\Controllers\ValuesController.cs:line 30
+System.Exception: kdhgaskjdgkadjg
+   at SitkoCRM.Controllers.ValuesController.Get() in C:\Users\Zubko\source\repos\SItkoCRM\SItkoCRM\Controllers\ValuesController.cs:line 30
+2019-06-07 10:23:52.175 +00:00 [INF] Executed action method SitkoCRM.Controllers.ValuesController.Get (SitkoCRM), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 2072.607ms.
+2019-06-07 10:23:52.181 +00:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"]
+2019-06-07 10:23:52.183 +00:00 [DBG] No information found on request to perform content negotiation.
+2019-06-07 10:23:52.183 +00:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2019-06-07 10:23:52.183 +00:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2019-06-07 10:23:52.183 +00:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter' and content type 'application/json' to write the response.
+2019-06-07 10:23:52.186 +00:00 [INF] Executing ObjectResult, writing value of type 'System.String[]'.
+2019-06-07 10:23:52.263 +00:00 [INF] Executed action SitkoCRM.Controllers.ValuesController.Get (SitkoCRM) in 2369.1673ms
+2019-06-07 10:23:52.267 +00:00 [INF] Executed endpoint 'SitkoCRM.Controllers.ValuesController.Get (SitkoCRM)'
+2019-06-07 10:23:52.269 +00:00 [DBG] Connection id "0HLNB68TK5R9S" completed keep alive response.
+2019-06-07 10:23:52.275 +00:00 [INF] Request finished in 2467.5761ms 200 application/json; charset=utf-8

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using SitkoCRM.DAL;
 
 namespace SitkoCRM.Controllers
@@ -13,16 +14,27 @@ namespace SitkoCRM.Controllers
     {
 
         private readonly CRMContainer _container;
-        public ValuesController(CRMContainer container)
+        public readonly ILogger _logger;
+        public ValuesController(CRMContainer container, ILogger<ValuesController> logger )
         {
             _container = container;
+            _logger = logger;
         }
 
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
+            try
+            {
+                throw new Exception("");
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, e.ToString());
+            }
             return new string[] { "value1", "value2" };
+            
         }
 
         // GET api/values/5
