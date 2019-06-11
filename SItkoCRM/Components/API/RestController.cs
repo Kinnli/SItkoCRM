@@ -15,7 +15,6 @@ using SitkoCRM.Components.Repository;
 
 namespace SitkoCRM.Components.API
 {
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("v1/[controller]")]
     [SuppressMessage("ReSharper", "ASP012")]
     public abstract class RestController<TRestModel, TEntity, TEntityPk> : ApiController
