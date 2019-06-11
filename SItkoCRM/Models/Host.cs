@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using SitkoCRM.Components.Repository;
 
 namespace SitkoCRM.Models
 {
@@ -17,5 +18,12 @@ namespace SitkoCRM.Models
         [ForeignKey(nameof(ServerId))] public Server Server { get; set; }
 
         public List<Domain> Domains { get; set; }
+    }
+
+    public class HostsRepository : Repository<Host, int, CRMContainer>
+    {
+        public HostsRepository(RepositoryContext<Host, int, CRMContainer> repositoryContext) : base(repositoryContext)
+        {
+        }
     }
 }

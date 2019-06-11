@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using SitkoCRM.Components.Repository;
 
 namespace SitkoCRM.Models
 {
@@ -24,5 +25,13 @@ namespace SitkoCRM.Models
         public List<Host> Hosts { get; set; }
         public List<DomainService> DomainsServices { get; set; }
         public List<Bill> Bills { get; set; }
+    }
+
+    public class ServicesRepository : Repository<Service, int, CRMContainer>
+    {
+        public ServicesRepository(RepositoryContext<Service, int, CRMContainer> repositoryContext) : base(
+            repositoryContext)
+        {
+        }
     }
 }

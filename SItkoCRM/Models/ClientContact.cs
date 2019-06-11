@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using SitkoCRM.Components.Repository;
 
 namespace SitkoCRM.Models
 {
@@ -12,5 +13,13 @@ namespace SitkoCRM.Models
         public int ClientId { get; set; }
 
         [ForeignKey(nameof(ClientId))] public Client Client { get; set; }
+    }
+
+    public class ClientContactsRepository : Repository<ClientContact, int, CRMContainer>
+    {
+        public ClientContactsRepository(RepositoryContext<ClientContact, int, CRMContainer> repositoryContext) : base(
+            repositoryContext)
+        {
+        }
     }
 }
