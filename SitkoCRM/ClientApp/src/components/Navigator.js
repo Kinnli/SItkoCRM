@@ -1,5 +1,4 @@
 ﻿import React from 'react';
-import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
@@ -137,9 +136,5 @@ function Navigator(props) {
         </Drawer>
     );
 }
-
-Navigator.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
 
 export default withStyles(styles)(Navigator);
