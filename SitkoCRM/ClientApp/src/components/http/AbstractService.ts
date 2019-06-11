@@ -7,7 +7,7 @@ export abstract class AbstractService<T> implements IBaseService<T> {
     protected restClient: rm.RestClient;
 
     protected constructor() {
-        this.restClient = new rm.RestClient('rest', "/");
+        this.restClient = new rm.RestClient('rest', "https://localhost:5001/v1/");
     }
 
     private static encodeQueryData(data): string {

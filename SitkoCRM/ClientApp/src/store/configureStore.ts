@@ -4,12 +4,21 @@ import {connectRouter, routerMiddleware} from 'connected-react-router';
 import * as Counter from './Counter';
 import * as WeatherForecasts from './WeatherForecasts';
 import * as Contact from './ClientsContact';
+import * as Clients from './Clients';
+
+export interface CrmStore {
+    counter;
+    weatherForecasts;
+    contacts;
+    clientsReducer;
+}
 
 export default function configureStore(history, initialState) {
     const reducers = {
         counter: Counter.reducer,
         weatherForecasts: WeatherForecasts.reducer,
-        contacts: Contact.reducer
+        contacts: Contact.reducer,
+        clientsReducer: Clients.reducer
     };
 
     const middleware = [
