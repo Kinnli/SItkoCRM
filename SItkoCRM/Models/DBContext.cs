@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using SitkoCRM.DAL;
 
-namespace SitkoCRM.DAL
+namespace SitkoCRM.Models
 {
     public class CRMContainer : DbContext
     {

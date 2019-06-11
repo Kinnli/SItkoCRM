@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace SitkoCRM.DAL
+namespace SitkoCRM.Models
 {
-    public class Bills:BaseModel
+    public class Bills : BaseModel
     {
-        [Key]
-        public int BillId { get; set; }
+        [Key] public int BillId { get; set; }
 
         public int Sum { get; set; }
 
@@ -20,8 +15,6 @@ namespace SitkoCRM.DAL
 
         public int ServiceId { get; set; }
 
-        [ForeignKey("ServiceId")]
-        public Services Service { get; set; }
-
+        [ForeignKey("ServiceId")] public Services Service { get; set; }
     }
 }
