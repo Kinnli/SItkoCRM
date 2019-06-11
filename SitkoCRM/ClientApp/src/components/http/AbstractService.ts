@@ -1,59 +1,70 @@
+import {RestClient} from './RestClient';
+import * as rm from 'typed-rest-client/RestClient';
+import {Filter} from './Filter';
+import {IRestResponse} from 'typed-rest-client/RestClient';
+
 export abstract class AbstractService<T> implements IBaseService<T> {
-    protected constructor(protected _httpClient: RestClient) {
+
+    protected _restc: rm.RestClient;
+
+    protected constructor() {
+        this._restc = new rm.RestClient('rest', "/");
     }
 
-    public getAll(page: number | null = 0, perPage: number | null = 10, sort: string | null = '', filter: Filter | null = null): Observable<AbstractListResult<T>> {
-        return this._httpClient.get(this._getResource(), {
+    private _getUrl(resource: string, params?: object | null): string {
+        let url = resource + '?';
+        if (params) {
+            url += RestClient.encodeQueryData(params);
+        }
+        return url;
+    }
+
+    public getAll(page: number | null = 0, perPage: number | null = 10, sort: string | null = '', filter: Filter | null = null): Promise<IRestResponse<AbstractListResult<T>>> {
+        return this._restc.get<AbstractListResult<T>>(this._getUrl(this._getResource(), {
             limit: perPage || 10,
             offset: page !== null && perPage !== null && page > 0 ? perPage * (page - 1) : 0,
             order: sort,
             filter: filter == null ? null : filter.toString()
-        }).pipe(map(res => <AbstractListResult<T>>res));
+        }));
     }
 
-    public get(id: number): Observable<ModelResponse<T>> {
-        return this._httpClient.get(this._getResource() + '/' + id, {})
-            .pipe(map(res => <ModelResponse<T>>res));
+    public get(id: number): Promise<IRestResponse<ModelResponse<T>>> {
+        return this._restc.get<ModelResponse<T>>(this._getResource() + '/' + id, {});
     }
 
-    public new(): Observable<ModelResponse<T>> {
-        return this._httpClient.get(this._getResource() + '/new', {})
-            .pipe(map(res => <ModelResponse<T>>res));
+    public new(): Promise<IRestResponse<ModelResponse<T>>> {
+        return this._restc.get<ModelResponse<T>>(this._getResource() + '/new', {});
     }
 
-    public add(item: T): Observable<ModelResponse<T>> {
-        return this._httpClient.post(this._getResource(), item)
-            .pipe(map(res => <ModelResponse<T>>res));
+    public add(item: T): Promise<IRestResponse<ModelResponse<T>>> {
+        return this._restc.create<ModelResponse<T>>(this._getResource(), item);
     }
 
-    public update(id: number, item: T): Observable<ModelResponse<T>> {
-        return this._httpClient.put(this._getResource() + '/' + id, item)
-            .pipe(map(res => <ModelResponse<T>>res));
+    public update(id: number, item: T): Promise<IRestResponse<ModelResponse<T>>> {
+        return this._restc.update<ModelResponse<T>>(this._getResource() + '/' + id, item);
     }
 
-    public delete(id: number): Observable<boolean> {
-        return this._httpClient.delete(this._getResource() + '/' + id)
-            .pipe(map(() => true));
+    public delete(id: number): Promise<IRestResponse<boolean>> {
+        return this._restc.del<boolean>(this._getResource() + '/' + id);
     }
 
-    public count(): Observable<number> {
-        return this._httpClient.get(this._getResource() + '/count', {})
-            .pipe(map(res => <number>res));
+    public count(): Promise<IRestResponse<number>> {
+        return this._restc.get<number>(this._getResource() + '/count', {});
     }
 
     protected abstract _getResource(): string;
 }
 
 export class RestError {
-    public message: string;
-    public field: string;
+    public message: string = '';
+    public field: string = '';
 }
 
 export class RestResult {
-    public code: number;
+    public code: number = 0;
     public errors: RestError[] = [];
-    public message: string;
-    public isSuccess: boolean;
+    public message: string = '';
+    public isSuccess: boolean = false;
 }
 
 export abstract class AbstractListResult<T> {
@@ -61,22 +72,20 @@ export abstract class AbstractListResult<T> {
     public abstract data: T[];
 
     // @JsonProperty()
-    public totalItems: number;
+    public totalItems: number = 0;
 }
 
 export class ModelResponse<T> extends RestResult {
-    public model: T;
+    public model: T | null = null;
 }
 
 export interface IBaseServiceCreatable<T> extends IBaseService<T> {
-    create(name: string): Observable<ModelResponse<T>>;
+    create(name: string): Promise<IRestResponse<ModelResponse<T>>>;
 }
 
 export abstract class AbstractServiceWithUpload<T> extends AbstractService<T> implements IBaseServiceWithUpload<T> {
-    public upload(file: InputFile): Observable<ModelResponse<StorageItem>> {
-        // @ts-ignore
-        return this._httpClient.post(this._getResource() + '/upload/', file.file, { name: file.file.name })
-            .pipe(map((data: ModelResponse<StorageItem>) => data));
+    public upload(file: any): Promise<IRestResponse<ModelResponse<StorageItem>>> {
+        return this._restc.create<ModelResponse<StorageItem>>(this._getResource() + '/upload/?name=' + file.file.name, file.file);
     }
 }
 
@@ -86,19 +95,26 @@ export interface IBaseService<T> {
         perPage: number | null,
         sort: string | null,
         filter: Filter | null
-    ): Observable<AbstractListResult<T>>;
+    ): Promise<IRestResponse<AbstractListResult<T>>>;
 
-    get(id: number): Observable<ModelResponse<T>>;
+    get(id: number): Promise<IRestResponse<ModelResponse<T>>>;
 
-    add(item: T): Observable<ModelResponse<T>>;
+    add(item: T): Promise<IRestResponse<ModelResponse<T>>>;
 
-    update(id: number, item: T): Observable<ModelResponse<T>>;
+    update(id: number, item: T): Promise<IRestResponse<ModelResponse<T>>>;
 
-    delete(id: number): Observable<boolean>;
+    delete(id: number): Promise<IRestResponse<boolean>>;
 
-    count(): Observable<number>;
+    count(): Promise<IRestResponse<number>>;
 }
 
 export interface IBaseServiceWithUpload<T> extends IBaseService<T> {
-    upload(file: InputFile): Observable<ModelResponse<StorageItem>>;
+    upload(file: any): Promise<IRestResponse<ModelResponse<StorageItem>>>;
+}
+
+export class StorageItem {
+    public fileName: string = '';
+    public fileSize: number = 0;
+    public publicUri: string = '';
+    public filePath: string = '';
 }
