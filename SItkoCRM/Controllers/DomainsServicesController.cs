@@ -31,10 +31,7 @@ namespace SitkoCRM.Controllers
         {
             var domainsServices = await _context.DomainsServices.FindAsync(id);
 
-            if (domainsServices == null)
-            {
-                return NotFound();
-            }
+            if (domainsServices == null) return NotFound();
 
             return domainsServices;
         }
@@ -43,10 +40,7 @@ namespace SitkoCRM.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDomainsServices(int id, DomainsServices domainsServices)
         {
-            if (id != domainsServices.Id)
-            {
-                return BadRequest();
-            }
+            if (id != domainsServices.Id) return BadRequest();
 
             _context.Entry(domainsServices).State = EntityState.Modified;
 
@@ -57,13 +51,8 @@ namespace SitkoCRM.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!DomainsServicesExists(id))
-                {
                     return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
             return NoContent();
@@ -76,7 +65,7 @@ namespace SitkoCRM.Controllers
             _context.DomainsServices.Add(domainsServices);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetDomainsServices", new { id = domainsServices.Id }, domainsServices);
+            return CreatedAtAction("GetDomainsServices", new {id = domainsServices.Id}, domainsServices);
         }
 
         // DELETE: api/DomainsServices/5
@@ -84,10 +73,7 @@ namespace SitkoCRM.Controllers
         public async Task<ActionResult<DomainsServices>> DeleteDomainsServices(int id)
         {
             var domainsServices = await _context.DomainsServices.FindAsync(id);
-            if (domainsServices == null)
-            {
-                return NotFound();
-            }
+            if (domainsServices == null) return NotFound();
 
             _context.DomainsServices.Remove(domainsServices);
             await _context.SaveChangesAsync();

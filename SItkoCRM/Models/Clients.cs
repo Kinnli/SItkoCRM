@@ -3,10 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SitkoCRM.Models
 {
-    public class Clients:BaseModel
+    public class Clients : BaseModel
     {
-        [Key]
-        public int ClientId { get; set; }
+        [Key] public int ClientId { get; set; }
+
         public string Name { get; set; }
         public string KPP { get; set; }
         public string INN { get; set; }

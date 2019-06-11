@@ -31,10 +31,7 @@ namespace SitkoCRM.Controllers
         {
             var clientContacts = await _context.ClientContacts.FindAsync(id);
 
-            if (clientContacts == null)
-            {
-                return NotFound();
-            }
+            if (clientContacts == null) return NotFound();
 
             return clientContacts;
         }
@@ -43,10 +40,7 @@ namespace SitkoCRM.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutClientContacts(int id, ClientContacts clientContacts)
         {
-            if (id != clientContacts.ContactId)
-            {
-                return BadRequest();
-            }
+            if (id != clientContacts.ContactId) return BadRequest();
 
             _context.Entry(clientContacts).State = EntityState.Modified;
 
@@ -57,13 +51,8 @@ namespace SitkoCRM.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!ClientContactsExists(id))
-                {
                     return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
             return NoContent();
@@ -76,7 +65,7 @@ namespace SitkoCRM.Controllers
             _context.ClientContacts.Add(clientContacts);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetClientContacts", new { id = clientContacts.ContactId }, clientContacts);
+            return CreatedAtAction("GetClientContacts", new {id = clientContacts.ContactId}, clientContacts);
         }
 
         // DELETE: api/ClientContacts/5
@@ -84,10 +73,7 @@ namespace SitkoCRM.Controllers
         public async Task<ActionResult<ClientContacts>> DeleteClientContacts(int id)
         {
             var clientContacts = await _context.ClientContacts.FindAsync(id);
-            if (clientContacts == null)
-            {
-                return NotFound();
-            }
+            if (clientContacts == null) return NotFound();
 
             _context.ClientContacts.Remove(clientContacts);
             await _context.SaveChangesAsync();

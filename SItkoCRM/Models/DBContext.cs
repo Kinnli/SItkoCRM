@@ -5,11 +5,9 @@ namespace SitkoCRM.Models
     public class CRMContainer : DbContext
     {
         public CRMContainer(DbContextOptions<CRMContainer> options)
-            :base(options)
+            : base(options)
         {
         }
-
-       
 
         public DbSet<Bills> Bills { get; set; }
         public DbSet<ClientContacts> ClientContacts { get; set; }
@@ -23,6 +21,5 @@ namespace SitkoCRM.Models
         public DbSet<Servers> Servers { get; set; }
         public DbSet<ServicesPrices> Prices { get; set; }
         public DbSet<ServicesStatuses> ServicesStatuses { get; set; }
-
     }
 }

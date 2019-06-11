@@ -31,10 +31,7 @@ namespace SitkoCRM.Controllers
         {
             var servicesPrices = await _context.Prices.FindAsync(id);
 
-            if (servicesPrices == null)
-            {
-                return NotFound();
-            }
+            if (servicesPrices == null) return NotFound();
 
             return servicesPrices;
         }
@@ -43,10 +40,7 @@ namespace SitkoCRM.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutServicesPrices(int id, ServicesPrices servicesPrices)
         {
-            if (id != servicesPrices.SerPriceId)
-            {
-                return BadRequest();
-            }
+            if (id != servicesPrices.SerPriceId) return BadRequest();
 
             _context.Entry(servicesPrices).State = EntityState.Modified;
 
@@ -57,13 +51,8 @@ namespace SitkoCRM.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!ServicesPricesExists(id))
-                {
                     return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
             return NoContent();
@@ -76,7 +65,7 @@ namespace SitkoCRM.Controllers
             _context.Prices.Add(servicesPrices);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetServicesPrices", new { id = servicesPrices.SerPriceId }, servicesPrices);
+            return CreatedAtAction("GetServicesPrices", new {id = servicesPrices.SerPriceId}, servicesPrices);
         }
 
         // DELETE: api/ServicesPrices/5
@@ -84,10 +73,7 @@ namespace SitkoCRM.Controllers
         public async Task<ActionResult<ServicesPrices>> DeleteServicesPrices(int id)
         {
             var servicesPrices = await _context.Prices.FindAsync(id);
-            if (servicesPrices == null)
-            {
-                return NotFound();
-            }
+            if (servicesPrices == null) return NotFound();
 
             _context.Prices.Remove(servicesPrices);
             await _context.SaveChangesAsync();

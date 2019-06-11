@@ -31,10 +31,7 @@ namespace SitkoCRM.Controllers
         {
             var domainsStatuses = await _context.DomainsStatuses.FindAsync(id);
 
-            if (domainsStatuses == null)
-            {
-                return NotFound();
-            }
+            if (domainsStatuses == null) return NotFound();
 
             return domainsStatuses;
         }
@@ -43,10 +40,7 @@ namespace SitkoCRM.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDomainsStatuses(int id, DomainsStatuses domainsStatuses)
         {
-            if (id != domainsStatuses.StatusId)
-            {
-                return BadRequest();
-            }
+            if (id != domainsStatuses.StatusId) return BadRequest();
 
             _context.Entry(domainsStatuses).State = EntityState.Modified;
 
@@ -57,13 +51,8 @@ namespace SitkoCRM.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!DomainsStatusesExists(id))
-                {
                     return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
             return NoContent();
@@ -76,7 +65,7 @@ namespace SitkoCRM.Controllers
             _context.DomainsStatuses.Add(domainsStatuses);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetDomainsStatuses", new { id = domainsStatuses.StatusId }, domainsStatuses);
+            return CreatedAtAction("GetDomainsStatuses", new {id = domainsStatuses.StatusId}, domainsStatuses);
         }
 
         // DELETE: api/DomainsStatuses/5
@@ -84,10 +73,7 @@ namespace SitkoCRM.Controllers
         public async Task<ActionResult<DomainsStatuses>> DeleteDomainsStatuses(int id)
         {
             var domainsStatuses = await _context.DomainsStatuses.FindAsync(id);
-            if (domainsStatuses == null)
-            {
-                return NotFound();
-            }
+            if (domainsStatuses == null) return NotFound();
 
             _context.DomainsStatuses.Remove(domainsStatuses);
             await _context.SaveChangesAsync();

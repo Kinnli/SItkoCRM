@@ -31,10 +31,7 @@ namespace SitkoCRM.Controllers
         {
             var domains = await _context.Domains.FindAsync(id);
 
-            if (domains == null)
-            {
-                return NotFound();
-            }
+            if (domains == null) return NotFound();
 
             return domains;
         }
@@ -43,10 +40,7 @@ namespace SitkoCRM.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDomains(int id, Domains domains)
         {
-            if (id != domains.DomainId)
-            {
-                return BadRequest();
-            }
+            if (id != domains.DomainId) return BadRequest();
 
             _context.Entry(domains).State = EntityState.Modified;
 
@@ -57,13 +51,8 @@ namespace SitkoCRM.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!DomainsExists(id))
-                {
                     return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
             return NoContent();
@@ -76,7 +65,7 @@ namespace SitkoCRM.Controllers
             _context.Domains.Add(domains);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetDomains", new { id = domains.DomainId }, domains);
+            return CreatedAtAction("GetDomains", new {id = domains.DomainId}, domains);
         }
 
         // DELETE: api/Domains/5
@@ -84,10 +73,7 @@ namespace SitkoCRM.Controllers
         public async Task<ActionResult<Domains>> DeleteDomains(int id)
         {
             var domains = await _context.Domains.FindAsync(id);
-            if (domains == null)
-            {
-                return NotFound();
-            }
+            if (domains == null) return NotFound();
 
             _context.Domains.Remove(domains);
             await _context.SaveChangesAsync();

@@ -9,366 +9,348 @@ namespace SitkoCRM.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Clients",
-                columns: table => new
+                "Clients",
+                table => new
                 {
-                    ClientId = table.Column<int>(nullable: false)
+                    ClientId = table.Column<int>()
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    created_at = table.Column<DateTime>(nullable: false),
-                    updated_at = table.Column<DateTime>(nullable: false),
+                    created_at = table.Column<DateTime>(),
+                    updated_at = table.Column<DateTime>(),
                     Name = table.Column<string>(nullable: true),
                     KPP = table.Column<string>(nullable: true),
                     INN = table.Column<string>(nullable: true),
                     Note = table.Column<string>(nullable: true),
-                    Active = table.Column<bool>(nullable: false)
+                    Active = table.Column<bool>()
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Clients", x => x.ClientId);
-                });
+                constraints: table => { table.PrimaryKey("PK_Clients", x => x.ClientId); });
 
             migrationBuilder.CreateTable(
-                name: "DomainsStatuses",
-                columns: table => new
+                "DomainsStatuses",
+                table => new
                 {
-                    StatusId = table.Column<int>(nullable: false)
+                    StatusId = table.Column<int>()
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    created_at = table.Column<DateTime>(nullable: false),
-                    updated_at = table.Column<DateTime>(nullable: false),
+                    created_at = table.Column<DateTime>(),
+                    updated_at = table.Column<DateTime>(),
                     Name = table.Column<string>(nullable: true)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_DomainsStatuses", x => x.StatusId);
-                });
+                constraints: table => { table.PrimaryKey("PK_DomainsStatuses", x => x.StatusId); });
 
             migrationBuilder.CreateTable(
-                name: "Operations",
-                columns: table => new
+                "Operations",
+                table => new
                 {
-                    OperationId = table.Column<int>(nullable: false)
+                    OperationId = table.Column<int>()
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    created_at = table.Column<DateTime>(nullable: false),
-                    updated_at = table.Column<DateTime>(nullable: false),
-                    Data = table.Column<string>(type: "jsonb", nullable: true)
+                    created_at = table.Column<DateTime>(),
+                    updated_at = table.Column<DateTime>(),
+                    Data = table.Column<string>("jsonb", nullable: true)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Operations", x => x.OperationId);
-                });
+                constraints: table => { table.PrimaryKey("PK_Operations", x => x.OperationId); });
 
             migrationBuilder.CreateTable(
-                name: "Prices",
-                columns: table => new
+                "Prices",
+                table => new
                 {
-                    SerPriceId = table.Column<int>(nullable: false)
+                    SerPriceId = table.Column<int>()
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    created_at = table.Column<DateTime>(nullable: false),
-                    updated_at = table.Column<DateTime>(nullable: false),
+                    created_at = table.Column<DateTime>(),
+                    updated_at = table.Column<DateTime>(),
                     Name = table.Column<string>(nullable: true),
                     Value = table.Column<string>(nullable: true)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Prices", x => x.SerPriceId);
-                });
+                constraints: table => { table.PrimaryKey("PK_Prices", x => x.SerPriceId); });
 
             migrationBuilder.CreateTable(
-                name: "Servers",
-                columns: table => new
+                "Servers",
+                table => new
                 {
-                    ServerId = table.Column<int>(nullable: false)
+                    ServerId = table.Column<int>()
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    created_at = table.Column<DateTime>(nullable: false),
-                    updated_at = table.Column<DateTime>(nullable: false),
+                    created_at = table.Column<DateTime>(),
+                    updated_at = table.Column<DateTime>(),
                     Name = table.Column<string>(nullable: true),
                     IPv4 = table.Column<string>(nullable: true),
                     IPv6 = table.Column<string>(nullable: true)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Servers", x => x.ServerId);
-                });
+                constraints: table => { table.PrimaryKey("PK_Servers", x => x.ServerId); });
 
             migrationBuilder.CreateTable(
-                name: "ServicesStatuses",
-                columns: table => new
+                "ServicesStatuses",
+                table => new
                 {
-                    SerStatusId = table.Column<int>(nullable: false)
+                    SerStatusId = table.Column<int>()
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    created_at = table.Column<DateTime>(nullable: false),
-                    updated_at = table.Column<DateTime>(nullable: false),
+                    created_at = table.Column<DateTime>(),
+                    updated_at = table.Column<DateTime>(),
                     Name = table.Column<string>(nullable: true)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ServicesStatuses", x => x.SerStatusId);
-                });
+                constraints: table => { table.PrimaryKey("PK_ServicesStatuses", x => x.SerStatusId); });
 
             migrationBuilder.CreateTable(
-                name: "ClientContacts",
-                columns: table => new
+                "ClientContacts",
+                table => new
                 {
-                    ContactId = table.Column<int>(nullable: false)
+                    ContactId = table.Column<int>()
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    created_at = table.Column<DateTime>(nullable: false),
-                    updated_at = table.Column<DateTime>(nullable: false),
+                    created_at = table.Column<DateTime>(),
+                    updated_at = table.Column<DateTime>(),
                     PhoneNum = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
-                    ClientId = table.Column<int>(nullable: false)
+                    ClientId = table.Column<int>()
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ClientContacts", x => x.ContactId);
                     table.ForeignKey(
-                        name: "FK_ClientContacts_Clients_ClientId",
-                        column: x => x.ClientId,
-                        principalTable: "Clients",
-                        principalColumn: "ClientId",
+                        "FK_ClientContacts_Clients_ClientId",
+                        x => x.ClientId,
+                        "Clients",
+                        "ClientId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Services",
-                columns: table => new
+                "Services",
+                table => new
                 {
-                    ServiceId = table.Column<int>(nullable: false)
+                    ServiceId = table.Column<int>()
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    created_at = table.Column<DateTime>(nullable: false),
-                    updated_at = table.Column<DateTime>(nullable: false),
-                    ActiveTo = table.Column<DateTime>(nullable: false),
-                    ClientId = table.Column<int>(nullable: false),
-                    StatusId = table.Column<int>(nullable: false),
-                    PriceId = table.Column<int>(nullable: false)
+                    created_at = table.Column<DateTime>(),
+                    updated_at = table.Column<DateTime>(),
+                    ActiveTo = table.Column<DateTime>(),
+                    ClientId = table.Column<int>(),
+                    StatusId = table.Column<int>(),
+                    PriceId = table.Column<int>()
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Services", x => x.ServiceId);
                     table.ForeignKey(
-                        name: "FK_Services_Clients_ClientId",
-                        column: x => x.ClientId,
-                        principalTable: "Clients",
-                        principalColumn: "ClientId",
+                        "FK_Services_Clients_ClientId",
+                        x => x.ClientId,
+                        "Clients",
+                        "ClientId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Services_Prices_PriceId",
-                        column: x => x.PriceId,
-                        principalTable: "Prices",
-                        principalColumn: "SerPriceId",
+                        "FK_Services_Prices_PriceId",
+                        x => x.PriceId,
+                        "Prices",
+                        "SerPriceId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Services_ServicesStatuses_StatusId",
-                        column: x => x.StatusId,
-                        principalTable: "ServicesStatuses",
-                        principalColumn: "SerStatusId",
+                        "FK_Services_ServicesStatuses_StatusId",
+                        x => x.StatusId,
+                        "ServicesStatuses",
+                        "SerStatusId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Bills",
-                columns: table => new
+                "Bills",
+                table => new
                 {
-                    BillId = table.Column<int>(nullable: false)
+                    BillId = table.Column<int>()
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    created_at = table.Column<DateTime>(nullable: false),
-                    updated_at = table.Column<DateTime>(nullable: false),
-                    Sum = table.Column<int>(nullable: false),
-                    IsBilled = table.Column<bool>(nullable: false),
-                    IsSended = table.Column<bool>(nullable: false),
-                    IsPayed = table.Column<bool>(nullable: false),
-                    ServiceId = table.Column<int>(nullable: false)
+                    created_at = table.Column<DateTime>(),
+                    updated_at = table.Column<DateTime>(),
+                    Sum = table.Column<int>(),
+                    IsBilled = table.Column<bool>(),
+                    IsSended = table.Column<bool>(),
+                    IsPayed = table.Column<bool>(),
+                    ServiceId = table.Column<int>()
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bills", x => x.BillId);
                     table.ForeignKey(
-                        name: "FK_Bills_Services_ServiceId",
-                        column: x => x.ServiceId,
-                        principalTable: "Services",
-                        principalColumn: "ServiceId",
+                        "FK_Bills_Services_ServiceId",
+                        x => x.ServiceId,
+                        "Services",
+                        "ServiceId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Hosts",
-                columns: table => new
+                "Hosts",
+                table => new
                 {
-                    HostId = table.Column<int>(nullable: false)
+                    HostId = table.Column<int>()
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    created_at = table.Column<DateTime>(nullable: false),
-                    updated_at = table.Column<DateTime>(nullable: false),
+                    created_at = table.Column<DateTime>(),
+                    updated_at = table.Column<DateTime>(),
                     Name = table.Column<string>(nullable: true),
-                    ServiceId = table.Column<int>(nullable: false),
-                    ServerId = table.Column<int>(nullable: false)
+                    ServiceId = table.Column<int>(),
+                    ServerId = table.Column<int>()
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Hosts", x => x.HostId);
                     table.ForeignKey(
-                        name: "FK_Hosts_Servers_ServerId",
-                        column: x => x.ServerId,
-                        principalTable: "Servers",
-                        principalColumn: "ServerId",
+                        "FK_Hosts_Servers_ServerId",
+                        x => x.ServerId,
+                        "Servers",
+                        "ServerId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Hosts_Services_ServiceId",
-                        column: x => x.ServiceId,
-                        principalTable: "Services",
-                        principalColumn: "ServiceId",
+                        "FK_Hosts_Services_ServiceId",
+                        x => x.ServiceId,
+                        "Services",
+                        "ServiceId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Domains",
-                columns: table => new
+                "Domains",
+                table => new
                 {
-                    DomainId = table.Column<int>(nullable: false)
+                    DomainId = table.Column<int>()
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    created_at = table.Column<DateTime>(nullable: false),
-                    updated_at = table.Column<DateTime>(nullable: false),
+                    created_at = table.Column<DateTime>(),
+                    updated_at = table.Column<DateTime>(),
                     Name = table.Column<string>(nullable: true),
-                    StatusId = table.Column<int>(nullable: false),
-                    HostId = table.Column<int>(nullable: false)
+                    StatusId = table.Column<int>(),
+                    HostId = table.Column<int>()
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Domains", x => x.DomainId);
                     table.ForeignKey(
-                        name: "FK_Domains_Hosts_HostId",
-                        column: x => x.HostId,
-                        principalTable: "Hosts",
-                        principalColumn: "HostId",
+                        "FK_Domains_Hosts_HostId",
+                        x => x.HostId,
+                        "Hosts",
+                        "HostId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Domains_DomainsStatuses_StatusId",
-                        column: x => x.StatusId,
-                        principalTable: "DomainsStatuses",
-                        principalColumn: "StatusId",
+                        "FK_Domains_DomainsStatuses_StatusId",
+                        x => x.StatusId,
+                        "DomainsStatuses",
+                        "StatusId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "DomainsServices",
-                columns: table => new
+                "DomainsServices",
+                table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>()
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    created_at = table.Column<DateTime>(nullable: false),
-                    updated_at = table.Column<DateTime>(nullable: false),
-                    ServiceId = table.Column<int>(nullable: false),
-                    DomainId = table.Column<int>(nullable: false)
+                    created_at = table.Column<DateTime>(),
+                    updated_at = table.Column<DateTime>(),
+                    ServiceId = table.Column<int>(),
+                    DomainId = table.Column<int>()
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_DomainsServices", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_DomainsServices_Domains_DomainId",
-                        column: x => x.DomainId,
-                        principalTable: "Domains",
-                        principalColumn: "DomainId",
+                        "FK_DomainsServices_Domains_DomainId",
+                        x => x.DomainId,
+                        "Domains",
+                        "DomainId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DomainsServices_Services_ServiceId",
-                        column: x => x.ServiceId,
-                        principalTable: "Services",
-                        principalColumn: "ServiceId",
+                        "FK_DomainsServices_Services_ServiceId",
+                        x => x.ServiceId,
+                        "Services",
+                        "ServiceId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Bills_ServiceId",
-                table: "Bills",
-                column: "ServiceId");
+                "IX_Bills_ServiceId",
+                "Bills",
+                "ServiceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ClientContacts_ClientId",
-                table: "ClientContacts",
-                column: "ClientId");
+                "IX_ClientContacts_ClientId",
+                "ClientContacts",
+                "ClientId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Domains_HostId",
-                table: "Domains",
-                column: "HostId");
+                "IX_Domains_HostId",
+                "Domains",
+                "HostId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Domains_StatusId",
-                table: "Domains",
-                column: "StatusId");
+                "IX_Domains_StatusId",
+                "Domains",
+                "StatusId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DomainsServices_DomainId",
-                table: "DomainsServices",
-                column: "DomainId");
+                "IX_DomainsServices_DomainId",
+                "DomainsServices",
+                "DomainId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DomainsServices_ServiceId",
-                table: "DomainsServices",
-                column: "ServiceId");
+                "IX_DomainsServices_ServiceId",
+                "DomainsServices",
+                "ServiceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Hosts_ServerId",
-                table: "Hosts",
-                column: "ServerId");
+                "IX_Hosts_ServerId",
+                "Hosts",
+                "ServerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Hosts_ServiceId",
-                table: "Hosts",
-                column: "ServiceId");
+                "IX_Hosts_ServiceId",
+                "Hosts",
+                "ServiceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Services_ClientId",
-                table: "Services",
-                column: "ClientId");
+                "IX_Services_ClientId",
+                "Services",
+                "ClientId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Services_PriceId",
-                table: "Services",
-                column: "PriceId");
+                "IX_Services_PriceId",
+                "Services",
+                "PriceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Services_StatusId",
-                table: "Services",
-                column: "StatusId");
+                "IX_Services_StatusId",
+                "Services",
+                "StatusId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Bills");
+                "Bills");
 
             migrationBuilder.DropTable(
-                name: "ClientContacts");
+                "ClientContacts");
 
             migrationBuilder.DropTable(
-                name: "DomainsServices");
+                "DomainsServices");
 
             migrationBuilder.DropTable(
-                name: "Operations");
+                "Operations");
 
             migrationBuilder.DropTable(
-                name: "Domains");
+                "Domains");
 
             migrationBuilder.DropTable(
-                name: "Hosts");
+                "Hosts");
 
             migrationBuilder.DropTable(
-                name: "DomainsStatuses");
+                "DomainsStatuses");
 
             migrationBuilder.DropTable(
-                name: "Servers");
+                "Servers");
 
             migrationBuilder.DropTable(
-                name: "Services");
+                "Services");
 
             migrationBuilder.DropTable(
-                name: "Clients");
+                "Clients");
 
             migrationBuilder.DropTable(
-                name: "Prices");
+                "Prices");
 
             migrationBuilder.DropTable(
-                name: "ServicesStatuses");
+                "ServicesStatuses");
         }
     }
 }

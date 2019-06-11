@@ -3,7 +3,7 @@
     loading: false,
     errors: {},
     forceReload: false
-}
+};
 
 export const actionCreators = {
     requestContacts: () => async (dispatch, getState) => {

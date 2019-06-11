@@ -24,18 +24,14 @@ namespace SitkoCRM
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "ClientApp/build";
-            });
-            services.AddDbContext<CRMContainer>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Info { Title = "MyApi", Version = "v1" });
-            });
+            services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });
+            services.AddDbContext<CRMContainer>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Info {Title = "MyApi", Version = "v1"}); });
             services.AddLogging(loggingBuilder =>
-            loggingBuilder.AddSerilog(dispose: true));
-            Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.File("log.txt", rollingInterval: RollingInterval.Day).CreateLogger();
+                loggingBuilder.AddSerilog(dispose: true));
+            Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo
+                .File("log.txt", rollingInterval: RollingInterval.Day).CreateLogger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,18 +59,11 @@ namespace SitkoCRM
             {
                 spa.Options.SourcePath = "ClientApp";
 
-                if (env.IsDevelopment())
-                {
-                    spa.UseReactDevelopmentServer(npmScript: "start");
-                }
+                if (env.IsDevelopment()) spa.UseReactDevelopmentServer("start");
             });
 
             app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-            });
-
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
         }
     }
 }

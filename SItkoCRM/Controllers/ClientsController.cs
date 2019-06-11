@@ -31,10 +31,7 @@ namespace SitkoCRM.Controllers
         {
             var clients = await _context.Clients.FindAsync(id);
 
-            if (clients == null)
-            {
-                return NotFound();
-            }
+            if (clients == null) return NotFound();
 
             return clients;
         }
@@ -43,10 +40,7 @@ namespace SitkoCRM.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutClients(int id, Clients clients)
         {
-            if (id != clients.ClientId)
-            {
-                return BadRequest();
-            }
+            if (id != clients.ClientId) return BadRequest();
 
             _context.Entry(clients).State = EntityState.Modified;
 
@@ -57,13 +51,8 @@ namespace SitkoCRM.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!ClientsExists(id))
-                {
                     return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
             return NoContent();
@@ -76,7 +65,7 @@ namespace SitkoCRM.Controllers
             _context.Clients.Add(clients);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetClients", new { id = clients.ClientId }, clients);
+            return CreatedAtAction("GetClients", new {id = clients.ClientId}, clients);
         }
 
         // DELETE: api/Clients/5
@@ -84,10 +73,7 @@ namespace SitkoCRM.Controllers
         public async Task<ActionResult<Clients>> DeleteClients(int id)
         {
             var clients = await _context.Clients.FindAsync(id);
-            if (clients == null)
-            {
-                return NotFound();
-            }
+            if (clients == null) return NotFound();
 
             _context.Clients.Remove(clients);
             await _context.SaveChangesAsync();

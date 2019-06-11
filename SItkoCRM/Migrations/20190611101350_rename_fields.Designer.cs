@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SitkoCRM.Models;
@@ -9,9 +10,10 @@ using SitkoCRM.Models;
 namespace SitkoCRM.Migrations
 {
     [DbContext(typeof(CRMContainer))]
-    partial class CRMContainerModelSnapshot : ModelSnapshot
+    [Migration("20190611101350_rename_fields")]
+    partial class rename_fields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

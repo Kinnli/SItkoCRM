@@ -31,10 +31,7 @@ namespace SitkoCRM.Controllers
         {
             var servicesStatuses = await _context.ServicesStatuses.FindAsync(id);
 
-            if (servicesStatuses == null)
-            {
-                return NotFound();
-            }
+            if (servicesStatuses == null) return NotFound();
 
             return servicesStatuses;
         }
@@ -43,10 +40,7 @@ namespace SitkoCRM.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutServicesStatuses(int id, ServicesStatuses servicesStatuses)
         {
-            if (id != servicesStatuses.SerStatusId)
-            {
-                return BadRequest();
-            }
+            if (id != servicesStatuses.SerStatusId) return BadRequest();
 
             _context.Entry(servicesStatuses).State = EntityState.Modified;
 
@@ -57,13 +51,8 @@ namespace SitkoCRM.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!ServicesStatusesExists(id))
-                {
                     return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
             return NoContent();
@@ -76,7 +65,7 @@ namespace SitkoCRM.Controllers
             _context.ServicesStatuses.Add(servicesStatuses);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetServicesStatuses", new { id = servicesStatuses.SerStatusId }, servicesStatuses);
+            return CreatedAtAction("GetServicesStatuses", new {id = servicesStatuses.SerStatusId}, servicesStatuses);
         }
 
         // DELETE: api/ServicesStatuses/5
@@ -84,10 +73,7 @@ namespace SitkoCRM.Controllers
         public async Task<ActionResult<ServicesStatuses>> DeleteServicesStatuses(int id)
         {
             var servicesStatuses = await _context.ServicesStatuses.FindAsync(id);
-            if (servicesStatuses == null)
-            {
-                return NotFound();
-            }
+            if (servicesStatuses == null) return NotFound();
 
             _context.ServicesStatuses.Remove(servicesStatuses);
             await _context.SaveChangesAsync();

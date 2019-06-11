@@ -31,10 +31,7 @@ namespace SitkoCRM.Controllers
         {
             var hosts = await _context.Hosts.FindAsync(id);
 
-            if (hosts == null)
-            {
-                return NotFound();
-            }
+            if (hosts == null) return NotFound();
 
             return hosts;
         }
@@ -43,10 +40,7 @@ namespace SitkoCRM.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutHosts(int id, Hosts hosts)
         {
-            if (id != hosts.HostId)
-            {
-                return BadRequest();
-            }
+            if (id != hosts.HostId) return BadRequest();
 
             _context.Entry(hosts).State = EntityState.Modified;
 
@@ -57,13 +51,8 @@ namespace SitkoCRM.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!HostsExists(id))
-                {
                     return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
             return NoContent();
@@ -76,7 +65,7 @@ namespace SitkoCRM.Controllers
             _context.Hosts.Add(hosts);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetHosts", new { id = hosts.HostId }, hosts);
+            return CreatedAtAction("GetHosts", new {id = hosts.HostId}, hosts);
         }
 
         // DELETE: api/Hosts/5
@@ -84,10 +73,7 @@ namespace SitkoCRM.Controllers
         public async Task<ActionResult<Hosts>> DeleteHosts(int id)
         {
             var hosts = await _context.Hosts.FindAsync(id);
-            if (hosts == null)
-            {
-                return NotFound();
-            }
+            if (hosts == null) return NotFound();
 
             _context.Hosts.Remove(hosts);
             await _context.SaveChangesAsync();
