@@ -41,7 +41,7 @@ steps:
   - task: Docker@2
     displayName: 'build and push image'
     inputs:
-      containerRegistry: 'SitkoCRM DockerHub'
+      containerRegistry: 'Sitko DockerHub'
       repository: 'sitkoru/crm'
       command: 'buildAndPush'
       Dockerfile: 'SitkoCRM/Dockerfile'
