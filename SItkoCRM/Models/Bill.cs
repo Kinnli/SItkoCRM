@@ -8,7 +8,7 @@ namespace SitkoCRM.Models
         public int Sum { get; set; }
 
         public bool IsBilled { get; set; }
-        public bool IsSended { get; set; }
+        public bool IsSent { get; set; }
         public bool IsPayed { get; set; }
 
         public int ServiceId { get; set; }

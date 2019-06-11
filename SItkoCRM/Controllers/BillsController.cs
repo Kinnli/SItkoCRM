@@ -14,14 +14,14 @@ namespace SitkoCRM.Controllers
         public int Sum { get; set; }
 
         public bool IsBilled { get; set; }
-        public bool IsSended { get; set; }
+        public bool IsSent { get; set; }
         public bool IsPayed { get; set; }
 
         public override void ParseEntity(Models.Bill entity)
         {
             Sum = entity.Sum;
             IsBilled = entity.IsBilled;
-            IsSended = entity.IsSended;
+            IsSent = entity.IsSent;
             IsPayed = entity.IsPayed;
         }
 
