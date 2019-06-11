@@ -1,0 +1,49 @@
+pool:
+  vmImage: 'Ubuntu 16.04'
+
+variables:
+  Version: '1.0.$(Build.BuildId)'
+  ImageName: sitkoru/crm:$(Version)
+
+steps:
+  - task: UseNode@1
+    displayName: 'install node'
+    inputs:
+      version: '12.x'
+      checkLatest: true
+
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet restore'
+    inputs:
+      command: restore
+      projects: '**/*.csproj'
+      feedsToUse: 'select'
+      verbosityRestore: 'minimal'
+
+  - task: Npm@1
+    displayName: 'install npm packages'
+    inputs:
+      command: 'custom'
+      customCommand: 'ci'
+      workingDir: 'SitkoCRM/ClientApp'
+      
+  - task: DotNetCoreCLI@2
+    displayName: 'publish app'
+    inputs:
+      command: custom
+      custom: publish
+      publishWebProjects: false
+      zipAfterPublish: false
+      modifyOutputPath: false
+      arguments: '--no-restore -c Release --output ./publish'
+      projects: '**/*.csproj'
+
+  - task: Docker@2
+    displayName: 'build and push image'
+    inputs:
+      containerRegistry: 'Sitko DockerHub'
+      repository: 'sitkoru/crm'
+      command: 'buildAndPush'
+      Dockerfile: 'SitkoCRM/Dockerfile'
+      buildContext: './publish'
+      tags: '$(Version)'

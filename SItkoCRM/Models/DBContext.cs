@@ -21,6 +21,8 @@ namespace SitkoCRM.Models
         public DbSet<Server> Servers { get; set; }
         public DbSet<ServicePrice> Prices { get; set; }
         public DbSet<ServiceStatus> ServicesStatuses { get; set; }
+        public DbSet<EmailMessage> EmailMessages { get; set; }
+        public DbSet<EmailType> EmailTypes { get; set; }
 
 
     }
