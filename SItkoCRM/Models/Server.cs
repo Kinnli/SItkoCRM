@@ -1,16 +1,15 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SitkoCRM.Models
 {
-    public class Servers : BaseModel
+    [Table("Servers")]
+    public class Server : BaseModel<int>
     {
-        [Key] public int ServerId { get; set; }
-
         public string Name { get; set; }
         public string IPv4 { get; set; }
         public string IPv6 { get; set; }
 
-        public List<Hosts> Hosts { get; set; }
+        public List<Host> Hosts { get; set; }
     }
 }

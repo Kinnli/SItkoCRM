@@ -19,12 +19,12 @@ namespace SitkoCRM.Migrations
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("SitkoCRM.Models.Bills", b =>
+            modelBuilder.Entity("SitkoCRM.Models.Bill", b =>
                 {
-                    b.Property<int>("BillId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<DateTimeOffset>("CreatedAt");
 
                     b.Property<bool>("IsBilled");
 
@@ -36,47 +36,23 @@ namespace SitkoCRM.Migrations
 
                     b.Property<int>("Sum");
 
-                    b.Property<DateTime>("UpdatedAt");
+                    b.Property<DateTimeOffset>("UpdatedAt");
 
-                    b.HasKey("BillId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ServiceId");
 
                     b.ToTable("Bills");
                 });
 
-            modelBuilder.Entity("SitkoCRM.Models.ClientContacts", b =>
+            modelBuilder.Entity("SitkoCRM.Models.Client", b =>
                 {
-                    b.Property<int>("ContactId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("ClientId");
-
-                    b.Property<DateTime>("CreatedAt");
-
-                    b.Property<string>("Email");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("PhoneNum");
-
-                    b.Property<DateTime>("UpdatedAt");
-
-                    b.HasKey("ContactId");
-
-                    b.HasIndex("ClientId");
-
-                    b.ToTable("ClientContacts");
-                });
-
-            modelBuilder.Entity("SitkoCRM.Models.Clients", b =>
-                {
-                    b.Property<int>("ClientId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<bool>("Active");
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<DateTimeOffset>("CreatedAt");
 
                     b.Property<string>("INN");
 
@@ -86,19 +62,43 @@ namespace SitkoCRM.Migrations
 
                     b.Property<string>("Note");
 
-                    b.Property<DateTime>("UpdatedAt");
+                    b.Property<DateTimeOffset>("UpdatedAt");
 
-                    b.HasKey("ClientId");
+                    b.HasKey("Id");
 
                     b.ToTable("Clients");
                 });
 
-            modelBuilder.Entity("SitkoCRM.Models.Domains", b =>
+            modelBuilder.Entity("SitkoCRM.Models.ClientContact", b =>
                 {
-                    b.Property<int>("DomainId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<int>("ClientId");
+
+                    b.Property<DateTimeOffset>("CreatedAt");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("PhoneNum");
+
+                    b.Property<DateTimeOffset>("UpdatedAt");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.ToTable("ClientContacts");
+                });
+
+            modelBuilder.Entity("SitkoCRM.Models.Domain", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTimeOffset>("CreatedAt");
 
                     b.Property<int>("HostId");
 
@@ -106,9 +106,9 @@ namespace SitkoCRM.Migrations
 
                     b.Property<int>("StatusId");
 
-                    b.Property<DateTime>("UpdatedAt");
+                    b.Property<DateTimeOffset>("UpdatedAt");
 
-                    b.HasKey("DomainId");
+                    b.HasKey("Id");
 
                     b.HasIndex("HostId");
 
@@ -117,18 +117,18 @@ namespace SitkoCRM.Migrations
                     b.ToTable("Domains");
                 });
 
-            modelBuilder.Entity("SitkoCRM.Models.DomainsServices", b =>
+            modelBuilder.Entity("SitkoCRM.Models.DomainService", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<DateTimeOffset>("CreatedAt");
 
                     b.Property<int>("DomainId");
 
                     b.Property<int>("ServiceId");
 
-                    b.Property<DateTime>("UpdatedAt");
+                    b.Property<DateTimeOffset>("UpdatedAt");
 
                     b.HasKey("Id");
 
@@ -136,31 +136,31 @@ namespace SitkoCRM.Migrations
 
                     b.HasIndex("ServiceId");
 
-                    b.ToTable("DomainsServices");
+                    b.ToTable("DomainServices");
                 });
 
-            modelBuilder.Entity("SitkoCRM.Models.DomainsStatuses", b =>
+            modelBuilder.Entity("SitkoCRM.Models.DomainStatus", b =>
                 {
-                    b.Property<int>("StatusId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<DateTimeOffset>("CreatedAt");
 
                     b.Property<string>("Name");
 
-                    b.Property<DateTime>("UpdatedAt");
+                    b.Property<DateTimeOffset>("UpdatedAt");
 
-                    b.HasKey("StatusId");
+                    b.HasKey("Id");
 
-                    b.ToTable("DomainsStatuses");
+                    b.ToTable("DomainStatuses");
                 });
 
-            modelBuilder.Entity("SitkoCRM.Models.Hosts", b =>
+            modelBuilder.Entity("SitkoCRM.Models.Host", b =>
                 {
-                    b.Property<int>("HostId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<DateTimeOffset>("CreatedAt");
 
                     b.Property<string>("Name");
 
@@ -168,9 +168,9 @@ namespace SitkoCRM.Migrations
 
                     b.Property<int>("ServiceId");
 
-                    b.Property<DateTime>("UpdatedAt");
+                    b.Property<DateTimeOffset>("UpdatedAt");
 
-                    b.HasKey("HostId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ServerId");
 
@@ -179,29 +179,29 @@ namespace SitkoCRM.Migrations
                     b.ToTable("Hosts");
                 });
 
-            modelBuilder.Entity("SitkoCRM.Models.Operations", b =>
+            modelBuilder.Entity("SitkoCRM.Models.Operation", b =>
                 {
-                    b.Property<int>("OperationId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<DateTimeOffset>("CreatedAt");
 
                     b.Property<string>("Data")
                         .HasColumnType("jsonb");
 
-                    b.Property<DateTime>("UpdatedAt");
+                    b.Property<DateTimeOffset>("UpdatedAt");
 
-                    b.HasKey("OperationId");
+                    b.HasKey("Id");
 
                     b.ToTable("Operations");
                 });
 
-            modelBuilder.Entity("SitkoCRM.Models.Servers", b =>
+            modelBuilder.Entity("SitkoCRM.Models.Server", b =>
                 {
-                    b.Property<int>("ServerId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<DateTimeOffset>("CreatedAt");
 
                     b.Property<string>("IPv4");
 
@@ -209,143 +209,141 @@ namespace SitkoCRM.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<DateTime>("UpdatedAt");
+                    b.Property<DateTimeOffset>("UpdatedAt");
 
-                    b.HasKey("ServerId");
+                    b.HasKey("Id");
 
                     b.ToTable("Servers");
                 });
 
-            modelBuilder.Entity("SitkoCRM.Models.Services", b =>
+            modelBuilder.Entity("SitkoCRM.Models.Service", b =>
                 {
-                    b.Property<int>("ServiceId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("ActiveTo");
 
                     b.Property<int>("ClientId");
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<DateTimeOffset>("CreatedAt");
 
                     b.Property<int>("PriceId");
 
                     b.Property<int>("StatusId");
 
-                    b.Property<DateTime>("UpdatedAt");
+                    b.Property<DateTimeOffset>("UpdatedAt");
 
-                    b.HasKey("ServiceId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ClientId");
-
-                    b.HasIndex("PriceId");
 
                     b.HasIndex("StatusId");
 
                     b.ToTable("Services");
                 });
 
-            modelBuilder.Entity("SitkoCRM.Models.ServicesPrices", b =>
+            modelBuilder.Entity("SitkoCRM.Models.ServicePrice", b =>
                 {
-                    b.Property<int>("SerPriceId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<DateTimeOffset>("CreatedAt");
 
                     b.Property<string>("Name");
 
-                    b.Property<DateTime>("UpdatedAt");
+                    b.Property<DateTimeOffset>("UpdatedAt");
 
                     b.Property<string>("Value");
 
-                    b.HasKey("SerPriceId");
+                    b.HasKey("Id");
 
-                    b.ToTable("Prices");
+                    b.ToTable("ServicePrices");
                 });
 
-            modelBuilder.Entity("SitkoCRM.Models.ServicesStatuses", b =>
+            modelBuilder.Entity("SitkoCRM.Models.ServiceStatus", b =>
                 {
-                    b.Property<int>("SerStatusId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<DateTimeOffset>("CreatedAt");
 
                     b.Property<string>("Name");
 
-                    b.Property<DateTime>("UpdatedAt");
+                    b.Property<DateTimeOffset>("UpdatedAt");
 
-                    b.HasKey("SerStatusId");
+                    b.HasKey("Id");
 
-                    b.ToTable("ServicesStatuses");
+                    b.ToTable("ServiceStatuses");
                 });
 
-            modelBuilder.Entity("SitkoCRM.Models.Bills", b =>
+            modelBuilder.Entity("SitkoCRM.Models.Bill", b =>
                 {
-                    b.HasOne("SitkoCRM.Models.Services", "Service")
+                    b.HasOne("SitkoCRM.Models.Service", "Service")
                         .WithMany("Bills")
                         .HasForeignKey("ServiceId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SitkoCRM.Models.ClientContacts", b =>
+            modelBuilder.Entity("SitkoCRM.Models.ClientContact", b =>
                 {
-                    b.HasOne("SitkoCRM.Models.Clients", "Client")
+                    b.HasOne("SitkoCRM.Models.Client", "Client")
                         .WithMany("ClientContacts")
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SitkoCRM.Models.Domains", b =>
+            modelBuilder.Entity("SitkoCRM.Models.Domain", b =>
                 {
-                    b.HasOne("SitkoCRM.Models.Hosts", "Host")
+                    b.HasOne("SitkoCRM.Models.Host", "Host")
                         .WithMany("Domains")
                         .HasForeignKey("HostId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("SitkoCRM.Models.DomainsStatuses", "Status")
+                    b.HasOne("SitkoCRM.Models.DomainStatus", "Status")
                         .WithMany("Domains")
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SitkoCRM.Models.DomainsServices", b =>
+            modelBuilder.Entity("SitkoCRM.Models.DomainService", b =>
                 {
-                    b.HasOne("SitkoCRM.Models.Domains", "Domain")
+                    b.HasOne("SitkoCRM.Models.Domain", "Domain")
                         .WithMany("DomainsServices")
                         .HasForeignKey("DomainId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("SitkoCRM.Models.Services", "Service")
+                    b.HasOne("SitkoCRM.Models.Service", "Service")
                         .WithMany("DomainsServices")
                         .HasForeignKey("ServiceId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SitkoCRM.Models.Hosts", b =>
+            modelBuilder.Entity("SitkoCRM.Models.Host", b =>
                 {
-                    b.HasOne("SitkoCRM.Models.Servers", "Server")
+                    b.HasOne("SitkoCRM.Models.Server", "Server")
                         .WithMany("Hosts")
                         .HasForeignKey("ServerId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("SitkoCRM.Models.Services", "Service")
+                    b.HasOne("SitkoCRM.Models.Service", "Service")
                         .WithMany("Hosts")
                         .HasForeignKey("ServiceId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SitkoCRM.Models.Services", b =>
+            modelBuilder.Entity("SitkoCRM.Models.Service", b =>
                 {
-                    b.HasOne("SitkoCRM.Models.Clients", "Client")
+                    b.HasOne("SitkoCRM.Models.Client", "Client")
                         .WithMany("Services")
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("SitkoCRM.Models.ServicesPrices", "Price")
+                    b.HasOne("SitkoCRM.Models.ServicePrice", "Price")
                         .WithMany("Services")
-                        .HasForeignKey("PriceId")
+                        .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("SitkoCRM.Models.ServicesStatuses", "Status")
+                    b.HasOne("SitkoCRM.Models.ServiceStatus", "Status")
                         .WithMany("Services")
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Cascade);

@@ -9,17 +9,17 @@ namespace SitkoCRM.Models
         {
         }
 
-        public DbSet<Bills> Bills { get; set; }
-        public DbSet<ClientContacts> ClientContacts { get; set; }
-        public DbSet<Clients> Clients { get; set; }
-        public DbSet<Domains> Domains { get; set; }
-        public DbSet<DomainsServices> DomainsServices { get; set; }
-        public DbSet<DomainsStatuses> DomainsStatuses { get; set; }
-        public DbSet<Hosts> Hosts { get; set; }
-        public DbSet<Operations> Operations { get; set; }
-        public DbSet<Services> Services { get; set; }
-        public DbSet<Servers> Servers { get; set; }
-        public DbSet<ServicesPrices> Prices { get; set; }
-        public DbSet<ServicesStatuses> ServicesStatuses { get; set; }
+        public DbSet<Bill> Bills { get; set; }
+        public DbSet<ClientContact> ClientContacts { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Domain> Domains { get; set; }
+        public DbSet<DomainService> DomainsServices { get; set; }
+        public DbSet<DomainStatus> DomainsStatuses { get; set; }
+        public DbSet<Host> Hosts { get; set; }
+        public DbSet<Operation> Operations { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<Server> Servers { get; set; }
+        public DbSet<ServicePrice> Prices { get; set; }
+        public DbSet<ServiceStatus> ServicesStatuses { get; set; }
     }
 }
