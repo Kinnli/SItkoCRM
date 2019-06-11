@@ -1,26 +1,37 @@
-import {RestClient} from './RestClient';
 import * as rm from 'typed-rest-client/RestClient';
 import {Filter} from './Filter';
 import {IRestResponse} from 'typed-rest-client/RestClient';
 
 export abstract class AbstractService<T> implements IBaseService<T> {
 
-    protected _restc: rm.RestClient;
+    protected restClient: rm.RestClient;
 
     protected constructor() {
-        this._restc = new rm.RestClient('rest', "/");
+        this.restClient = new rm.RestClient('rest', "/");
     }
 
-    private _getUrl(resource: string, params?: object | null): string {
+    private static encodeQueryData(data): string {
+        const ret: string[] = [];
+        for (const d in data) {
+            if (!data.hasOwnProperty(d)) {
+                continue;
+            }
+            ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
+        }
+        return ret.join('&');
+    }
+
+
+    private static _getUrl(resource: string, params?: object | null): string {
         let url = resource + '?';
         if (params) {
-            url += RestClient.encodeQueryData(params);
+            url += AbstractService.encodeQueryData(params);
         }
         return url;
     }
 
     public getAll(page: number | null = 0, perPage: number | null = 10, sort: string | null = '', filter: Filter | null = null): Promise<IRestResponse<AbstractListResult<T>>> {
-        return this._restc.get<AbstractListResult<T>>(this._getUrl(this._getResource(), {
+        return this.restClient.get<AbstractListResult<T>>(AbstractService._getUrl(this._getResource(), {
             limit: perPage || 10,
             offset: page !== null && perPage !== null && page > 0 ? perPage * (page - 1) : 0,
             order: sort,
@@ -29,27 +40,27 @@ export abstract class AbstractService<T> implements IBaseService<T> {
     }
 
     public get(id: number): Promise<IRestResponse<ModelResponse<T>>> {
-        return this._restc.get<ModelResponse<T>>(this._getResource() + '/' + id, {});
+        return this.restClient.get<ModelResponse<T>>(this._getResource() + '/' + id, {});
     }
 
     public new(): Promise<IRestResponse<ModelResponse<T>>> {
-        return this._restc.get<ModelResponse<T>>(this._getResource() + '/new', {});
+        return this.restClient.get<ModelResponse<T>>(this._getResource() + '/new', {});
     }
 
     public add(item: T): Promise<IRestResponse<ModelResponse<T>>> {
-        return this._restc.create<ModelResponse<T>>(this._getResource(), item);
+        return this.restClient.create<ModelResponse<T>>(this._getResource(), item);
     }
 
     public update(id: number, item: T): Promise<IRestResponse<ModelResponse<T>>> {
-        return this._restc.update<ModelResponse<T>>(this._getResource() + '/' + id, item);
+        return this.restClient.update<ModelResponse<T>>(this._getResource() + '/' + id, item);
     }
 
     public delete(id: number): Promise<IRestResponse<boolean>> {
-        return this._restc.del<boolean>(this._getResource() + '/' + id);
+        return this.restClient.del<boolean>(this._getResource() + '/' + id);
     }
 
     public count(): Promise<IRestResponse<number>> {
-        return this._restc.get<number>(this._getResource() + '/count', {});
+        return this.restClient.get<number>(this._getResource() + '/count', {});
     }
 
     protected abstract _getResource(): string;
@@ -85,7 +96,7 @@ export interface IBaseServiceCreatable<T> extends IBaseService<T> {
 
 export abstract class AbstractServiceWithUpload<T> extends AbstractService<T> implements IBaseServiceWithUpload<T> {
     public upload(file: any): Promise<IRestResponse<ModelResponse<StorageItem>>> {
-        return this._restc.create<ModelResponse<StorageItem>>(this._getResource() + '/upload/?name=' + file.file.name, file.file);
+        return this.restClient.create<ModelResponse<StorageItem>>(this._getResource() + '/upload/?name=' + file.file.name, file.file);
     }
 }
 
