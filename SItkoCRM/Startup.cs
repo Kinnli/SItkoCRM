@@ -53,6 +53,9 @@ namespace SitkoCRM
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
+            
             app.UseMvc();
 
             app.UseSpa(spa =>
@@ -61,9 +64,6 @@ namespace SitkoCRM
 
                 if (env.IsDevelopment()) spa.UseReactDevelopmentServer("start");
             });
-
-            app.UseSwagger();
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
         }
     }
 }
