@@ -21,5 +21,7 @@ namespace SitkoCRM.Models
         public DbSet<Server> Servers { get; set; }
         public DbSet<ServicePrice> Prices { get; set; }
         public DbSet<ServiceStatus> ServicesStatuses { get; set; }
+
+
     }
 }
