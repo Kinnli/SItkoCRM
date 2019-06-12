@@ -7,6 +7,9 @@ import configureStore from './store/configureStore';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
+// Service worker
+//import * as serviceWorker from './common/serviceWorker';
+
 // Create browser history to use in the Redux store
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href') as string;
 const history = createBrowserHistory({ basename: baseUrl });
@@ -27,3 +30,7 @@ ReactDOM.render(
   rootElement);
  
 registerServiceWorker();
+
+//ReactDOM.render(<App />, document.getElementById('root'));
+
+//serviceWorker.unregister();

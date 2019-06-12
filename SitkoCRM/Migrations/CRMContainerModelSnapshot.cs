@@ -155,6 +155,52 @@ namespace SitkoCRM.Migrations
                     b.ToTable("DomainStatuses");
                 });
 
+            modelBuilder.Entity("SitkoCRM.Models.EmailMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Attachment");
+
+                    b.Property<string>("AttachmentFilename");
+
+                    b.Property<DateTimeOffset>("CreatedAt");
+
+                    b.Property<bool>("IsSended");
+
+                    b.Property<string>("Message");
+
+                    b.Property<DateTime>("SendedAt");
+
+                    b.Property<string>("Subject");
+
+                    b.Property<int>("TypeId");
+
+                    b.Property<DateTimeOffset>("UpdatedAt");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TypeId");
+
+                    b.ToTable("EmailMessages");
+                });
+
+            modelBuilder.Entity("SitkoCRM.Models.EmailType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTimeOffset>("CreatedAt");
+
+                    b.Property<string>("Name");
+
+                    b.Property<DateTimeOffset>("UpdatedAt");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EmailTypes");
+                });
+
             modelBuilder.Entity("SitkoCRM.Models.Host", b =>
                 {
                     b.Property<int>("Id")
@@ -315,6 +361,14 @@ namespace SitkoCRM.Migrations
                     b.HasOne("SitkoCRM.Models.Service", "Service")
                         .WithMany("DomainsServices")
                         .HasForeignKey("ServiceId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("SitkoCRM.Models.EmailMessage", b =>
+                {
+                    b.HasOne("SitkoCRM.Models.EmailType", "Type")
+                        .WithMany("Messages")
+                        .HasForeignKey("TypeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

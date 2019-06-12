@@ -21,6 +21,10 @@
         <PackageReference Include="Microsoft.AspNetCore.App" />
         <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
+        <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="3.5.1">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.9" />
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.2.4" />
@@ -41,7 +45,31 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Migrations" />
+      <None Remove="ClientApp\src\components\entities\Bill.ts" />
+      <None Remove="ClientApp\src\components\entities\ClientContact.ts" />
+      <None Remove="ClientApp\src\components\entities\Domain.ts" />
+      <None Remove="ClientApp\src\components\entities\DomainStatus.ts" />
+      <None Remove="ClientApp\src\components\entities\EmailMessage.ts" />
+      <None Remove="ClientApp\src\components\entities\EmailType.ts" />
+      <None Remove="ClientApp\src\components\entities\Host.ts" />
+      <None Remove="ClientApp\src\components\entities\Operation.ts" />
+      <None Remove="ClientApp\src\components\entities\Server.ts" />
+      <None Remove="ClientApp\src\components\entities\Service.ts" />
+      <None Remove="ClientApp\src\components\entities\ServicePrice.ts" />
+      <None Remove="ClientApp\src\components\entities\ServiceStatus.ts" />
+      <None Remove="ClientApp\src\components\services\BillsService.ts" />
+      <None Remove="ClientApp\src\components\services\ClientsContactsService.ts" />
+      <None Remove="ClientApp\src\components\services\DomainsService.ts" />
+      <None Remove="ClientApp\src\components\services\DomainStatusesService.ts" />
+      <None Remove="ClientApp\src\components\services\EmailMessagesService.ts" />
+      <None Remove="ClientApp\src\components\services\EmailTypesServices.ts" />
+      <None Remove="ClientApp\src\components\services\HostsService.ts" />
+      <None Remove="ClientApp\src\components\services\OperationsService.ts" />
+      <None Remove="ClientApp\src\components\services\ServersService.ts" />
+      <None Remove="ClientApp\src\components\services\ServicePricesService.ts" />
+      <None Remove="ClientApp\src\components\services\ServicesService.ts" />
+      <None Remove="ClientApp\src\components\services\ServiceStatusesService.ts" />
+      <None Remove="ClientApp\src\views\UserList\components\index.tsx" />
     </ItemGroup>
 
     <ItemGroup>
