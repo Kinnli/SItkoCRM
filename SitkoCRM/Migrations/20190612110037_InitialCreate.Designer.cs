@@ -10,7 +10,7 @@ using SitkoCRM.Models;
 namespace SitkoCRM.Migrations
 {
     [DbContext(typeof(CRMContainer))]
-    [Migration("20190612083533_InitialCreate")]
+    [Migration("20190612110037_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
