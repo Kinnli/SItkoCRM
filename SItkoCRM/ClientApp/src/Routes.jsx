@@ -14,6 +14,7 @@ import SignUp from './views/SignUp';
 import SignIn from './views/SignIn';
 import UnderDevelopment from './views/UnderDevelopment';
 import NotFound from './views/NotFound';
+import AddUser from './views/AddUser';
 
 export default class Routes extends Component {
   render() {
@@ -34,6 +35,11 @@ export default class Routes extends Component {
           component={UserList}
           exact
           path="/users"
+            />
+        <Route
+            component={AddUser}
+            exact
+            path="/user"
         />
         <Route
           component={ProductList}

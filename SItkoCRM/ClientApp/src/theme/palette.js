@@ -52,7 +52,13 @@ export default {
     default: '#f8fafc',
     dark: '#172B4D',
     paper: white
-  },
+    },
+    additional: {
+        contrastText: white,
+        main: '#26a69a',
+        light: '#80cbc4',
+        dark: '#004d40'
+    },
   border: '#DFE3E8',
   divider: '#DFE3E8'
 };

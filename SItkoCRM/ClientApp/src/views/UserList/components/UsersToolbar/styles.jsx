@@ -12,7 +12,11 @@ export default theme => ({
   deleteButton: {
     color: theme.palette.danger.main,
     marginRight: theme.spacing.unit
-  },
+    },
+    createButton: {
+        color: theme.palette.additional.main,
+        marginRight: theme.spacing.unit
+    },
   importButton: {
     marginRight: theme.spacing.unit
   },

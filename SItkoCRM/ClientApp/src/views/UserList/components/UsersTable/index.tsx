@@ -35,9 +35,7 @@ import {Client} from '../../../../components/entities/Client';
 
 interface UsersTableProps {
     users: Client[];
-
     onSelect(selectedUsers: number[]);
-
     selectedUsers: number[];
     classes;
     className: string;

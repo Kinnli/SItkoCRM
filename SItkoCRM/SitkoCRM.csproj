@@ -69,13 +69,18 @@
       <None Remove="ClientApp\src\components\services\ServicePricesService.ts" />
       <None Remove="ClientApp\src\components\services\ServicesService.ts" />
       <None Remove="ClientApp\src\components\services\ServiceStatusesService.ts" />
+      <None Remove="ClientApp\src\views\AddUser\components\index.tsx" />
+      <None Remove="ClientApp\src\views\AddUser\index.jsx" />
       <None Remove="ClientApp\src\views\UserList\components\index.tsx" />
+      <None Remove="ClientApp\src\views\UserList\components\UsersToolbar\index.jsx" />
     </ItemGroup>
 
     <ItemGroup>
       <TypeScriptCompile Include="ClientApp\src\components\entities\Client.ts" />
       <TypeScriptCompile Include="ClientApp\src\components\services\ClientsService.ts" />
       <TypeScriptCompile Include="ClientApp\src\store\Clients.ts" />
+      <TypeScriptCompile Include="ClientApp\src\views\AddUser\index.jsx" />
+      <TypeScriptCompile Include="ClientApp\src\views\UserList\components\UsersToolbar\index.jsx" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
